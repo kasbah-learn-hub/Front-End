@@ -1,0 +1,242 @@
+name: "✨ Feature Request"
+description: "Suggest a new feature or enhancement for Kasbah Learn Hub Frontend"
+title: "[FEATURE] "
+labels: ["enhancement", "needs-triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! ✨
+        
+        Please provide detailed information to help us understand your request.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      description: Please confirm you have completed the following
+      options:
+        - label: I have searched existing issues and PRs to avoid duplicates
+          required: true
+        - label: I have checked the roadmap and documentation
+          required: true
+        - label: This is a feature request, not a bug report
+          required: true
+
+  - type: dropdown
+    id: feature-type
+    attributes:
+      label: Feature Type
+      description: What type of feature is this?
+      options:
+        - UI/UX Enhancement
+        - New Component
+        - Performance Improvement
+        - Accessibility Feature
+        - Learning Feature
+        - Dashboard Feature
+        - Mobile Enhancement
+        - Integration
+        - Developer Experience
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: A clear and detailed description of the feature you'd like to see
+      placeholder: |
+        Describe the feature in detail...
+        
+        What would this feature do?
+        How would it work?
+        What would be the key components?
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve?
+      placeholder: |
+        Describe the problem or pain point this feature addresses...
+        
+        Current state: What happens now?
+        Desired state: What should happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: target-users
+    attributes:
+      label: Target Users
+      description: Who would benefit from this feature?
+      placeholder: |
+        - Students
+        - Instructors
+        - Administrators
+        - Developers
+        - Other (specify)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature?
+      options:
+        - Low (Nice to have)
+        - Medium (Would improve experience)
+        - High (Important for user satisfaction)
+        - Critical (Essential for core functionality)
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-stories
+    attributes:
+      label: User Stories
+      description: Write user stories for this feature
+      placeholder: |
+        As a [type of user], I want [some goal] so that [some reason].
+        
+        Example:
+        - As a student, I want to bookmark lessons so that I can easily return to them later.
+        - As an instructor, I want to see real-time engagement metrics so that I can adjust my teaching approach.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What criteria must be met for this feature to be considered complete?
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+        - [ ] Feature works on mobile devices
+        - [ ] Feature is accessible (WCAG 2.1 AA)
+        - [ ] Feature has proper error handling
+        - [ ] Feature includes loading states
+        - [ ] Feature is tested
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: Mockups/Wireframes
+      description: Any visual mockups, wireframes, or examples
+      placeholder: |
+        Drag and drop images here or paste URLs
+        
+        You can also describe the UI/UX flow in text if you don't have visuals
+
+  - type: textarea
+    id: technical-considerations
+    attributes:
+      label: Technical Considerations
+      description: Any technical aspects to consider?
+      placeholder: |
+        - API changes needed
+        - Database schema changes
+        - Performance impact
+        - Security considerations
+        - Third-party integrations
+        - Browser compatibility
+        - Accessibility requirements
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Are there alternative ways to solve this problem?
+      placeholder: |
+        Describe any alternative approaches you've considered...
+        
+        Why is your proposed solution better than the alternatives?
+
+  - type: input
+    id: similar-features
+    attributes:
+      label: Similar Features
+      description: Are there similar features in other apps/platforms?
+      placeholder: e.g. "Similar to Slack's thread feature" or "Like Notion's block system"
+
+  - type: dropdown
+    id: implementation-complexity
+    attributes:
+      label: Implementation Complexity (Your Estimate)
+      description: How complex do you think this feature would be to implement?
+      options:
+        - Low (Simple UI changes)
+        - Medium (New components/logic)
+        - High (Complex interactions/integrations)
+        - Very High (Major architectural changes)
+        - Not sure
+
+  - type: textarea
+    id: business-value
+    attributes:
+      label: Business Value
+      description: How would this feature benefit Kasbah Learn Hub?
+      placeholder: |
+        - Increased user engagement
+        - Improved learning outcomes
+        - Reduced support tickets
+        - Competitive advantage
+        - Revenue impact
+        - User retention
+
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Success Metrics
+      description: How would you measure the success of this feature?
+      placeholder: |
+        - Usage statistics
+        - User satisfaction scores
+        - Performance metrics
+        - Learning outcome improvements
+        - Support ticket reduction
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Are you willing to contribute to this feature?
+      options:
+        - label: I can help with design/mockups
+        - label: I can help with frontend development
+        - label: I can help with testing
+        - label: I can help with documentation
+        - label: I can provide feedback during development
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other context, links, or information
+      placeholder: |
+        - Links to related issues
+        - Research or articles
+        - User feedback
+        - Business requirements
+        - Timeline considerations
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        **For Developers:**
+        - Review feasibility and technical requirements
+        - Estimate development effort
+        - Consider impact on existing features
+        - Plan implementation phases if needed
+        
+        Thank you for helping make Kasbah Learn Hub better! 🚀
