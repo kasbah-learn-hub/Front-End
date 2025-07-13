@@ -8,7 +8,7 @@
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/kasbah-learn-hub/Front-End/ci.yml?branch=main&style=for-the-badge)](https://github.com/kasbah-learn-hub/Front-End/actions)
 [![Code Coverage](https://img.shields.io/codecov/c/github/kasbah-learn-hub/Front-End?style=for-the-badge)](https://codecov.io/gh/kasbah-learn-hub/Front-End)
-[![Bundle Size](https://img.shields.io/bundlephobia/minzip/kasbah-frontend?style=for-the-badge)](https://bundlephobia.com/package/kasbah-frontend)
+<!-- [![Bundle Size](https://img.shields.io/bundlephobia/minzip/Front-End?style=for-the-badge)](https://bundlephobia.com/package/Front-End) -->
 [![Version](https://img.shields.io/github/package-json/v/kasbah-learn-hub/Front-End?style=for-the-badge)](https://github.com/kasbah-learn-hub/Front-End/releases)
 
 Modern, responsive React-based frontend for the Kasbah Learn Hub LMS platform. Built with cutting-edge web technologies to deliver an intuitive and engaging learning experience.
