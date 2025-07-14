@@ -16,6 +16,7 @@ import { toast } from 'sonner'
 const LoginForm = () => {
 
     const [loading,setLoading] = useState<boolean>(false)
+    const [error,setError] = useState<string>('')
     const [formData,setFormData] = useState({
         email: '',
         password: ''
@@ -34,6 +35,7 @@ const LoginForm = () => {
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
         setLoading(true)
+        setError('')
         try{
             // const response = await login(formData);
             // if(response.status === 200){
@@ -43,8 +45,8 @@ const LoginForm = () => {
                setLoading(false)
                toast.success('Logged in successfully')
             }, 1500 );
-        }catch{
-            
+        }catch(err: any){
+            setError(err)
         }finally{
             // setLoading(false)
         }
@@ -72,9 +74,9 @@ const LoginForm = () => {
 
                         
 
-                        {/* {error && (
+                        {error && (
                             <div className="text-red-600 text-center mb-2">{error}</div>
-                        )} */}
+                        )}
 
                         <div className="grid gap-6">
                             <div className="grid gap-1">

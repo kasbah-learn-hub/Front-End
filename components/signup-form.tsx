@@ -29,7 +29,8 @@ const signupSchema = z.object({
 
 export const SignupForm = () => {
 
-    const [loading,setLoading] = useState(false)
+    const [loading,setLoading] = useState<boolean>(false)
+    const [error,setError] = useState<string>('')
     const [errors, setErrors] = useState<Partial<Record<keyof typeof formData, string>>>({});
     const [formData,setFormData] = useState({
         name: '',
@@ -60,6 +61,7 @@ export const SignupForm = () => {
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
         setErrors({});
+        setError('');
         const result = signupSchema.safeParse(formData);
 
         if (!result.success) {
@@ -83,8 +85,8 @@ export const SignupForm = () => {
                 setLoading(false)
                 toast.success('Registred successfully')
              }, 1500 );
-        }catch{
-
+        }catch(err: any){
+            setError(err)
         }finally{
             // setLoading(false)
         }
@@ -111,9 +113,9 @@ export const SignupForm = () => {
                         <form onSubmit={handleSubmit}>
                             <div className="grid gap-4">
                            
-                            {/* {error && (
+                            {error && (
                                 <div className="text-red-600 text-center mb-2">{error}</div>
-                            )} */}
+                            )}
 
                             <div className="grid gap-6">
 
