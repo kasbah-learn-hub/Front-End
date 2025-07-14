@@ -29,12 +29,15 @@ Please fill out this template to help us review your pull request efficiently.
 <!-- Provide a clear and concise description of your changes -->
 
 **What does this PR do?**
+
 <!-- Explain what your changes accomplish -->
 
 **Why is this change needed?**
+
 <!-- Explain the motivation behind these changes -->
 
 **How does it work?**
+
 <!-- Briefly explain the technical approach -->
 
 ### Related Issues
@@ -301,6 +304,7 @@ Please fill out this template to help us review your pull request efficiently.
 ---
 
 **Additional Notes:**
+
 <!-- Any additional information for reviewers -->
 
 ---

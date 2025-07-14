@@ -4,11 +4,14 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Next.js](https://img.shields.io/badge/Next.ts-15.x-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+
 <!-- [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT) -->
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/kasbah-learn-hub/Front-End/ci.yml?branch=main&style=for-the-badge)](https://github.com/kasbah-learn-hub/Front-End/actions)
 [![Code Coverage](https://img.shields.io/codecov/c/github/kasbah-learn-hub/Front-End?style=for-the-badge)](https://codecov.io/gh/kasbah-learn-hub/Front-End)
+
 <!-- [![Bundle Size](https://img.shields.io/bundlephobia/minzip/Front-End?style=for-the-badge)](https://bundlephobia.com/package/Front-End) -->
+
 [![Version](https://img.shields.io/github/package-json/v/kasbah-learn-hub/Front-End?style=for-the-badge)](https://github.com/kasbah-learn-hub/Front-End/releases)
 
 Modern, responsive React-based frontend for the Kasbah Learn Hub LMS platform. Built with cutting-edge web technologies to deliver an intuitive and engaging learning experience.
@@ -42,7 +45,8 @@ Modern, responsive React-based frontend for the Kasbah Learn Hub LMS platform. B
 ## 🛠️ Development
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 - Git
 
