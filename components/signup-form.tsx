@@ -12,6 +12,8 @@ import { PhoneInput } from './ui/phone-input'
 import { PasswordInput } from './ui/password-input'
 
 import { z } from "zod";
+import { Loader } from 'lucide-react'
+import { toast } from 'sonner'
 
 const signupSchema = z.object({
     name: z.string().min(1, "Full name is required"),
@@ -71,7 +73,21 @@ export const SignupForm = () => {
             });
             return;
         }
-        console.log(formData);
+        setLoading(true)
+        try{
+            // const response = await register(formData);
+            // if(response.status === 200){
+                // waiting for backend response 
+            // }
+            setTimeout(() => {
+                setLoading(false)
+                toast.success('Registred successfully')
+             }, 1500 );
+        }catch{
+
+        }finally{
+            // setLoading(false)
+        }
         
     }
     return (
@@ -108,7 +124,6 @@ export const SignupForm = () => {
                                             type="name"
                                             name='name'
                                             placeholder="eg, Joen doe"
-                                            // required
                                             onChange={handleChange}
                                         />
                                           {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
@@ -129,7 +144,6 @@ export const SignupForm = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                         placeholder="m@example.com"
-                                        required
                                     />
                                     {errors.email && <p className="text-red-600 text-sm">{errors.email}</p>}
                                 </div>
@@ -152,8 +166,15 @@ export const SignupForm = () => {
                                     <Button
                                         type="submit"
                                         className="w-full bg-blue-600 cursor-pointer hover:bg-blue-700"
+                                        disabled={loading}
                                     >
-                                        Continue
+                                        {
+                                        loading ?
+                                            <div>
+                                                <Loader className='animate-spin'/>
+                                            </div>
+                                            : "Continue"
+                                        }
                                     </Button>
                                 </div>
                                 
