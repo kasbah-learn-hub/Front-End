@@ -1,0 +1,161 @@
+name: "❓ Question"
+description: "Ask a question about Kasbah Learn Hub Frontend"
+title: "[QUESTION] "
+labels: ["question", "needs-triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your question! 🤔
+        
+        Please provide as much detail as possible to help us give you the best answer.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      description: Please confirm you have completed the following
+      options:
+        - label: I have searched existing issues and discussions
+          required: true
+        - label: I have checked the documentation
+          required: true
+        - label: I have checked the FAQ
+          required: true
+
+  - type: dropdown
+    id: question-type
+    attributes:
+      label: Question Type
+      description: What type of question is this?
+      options:
+        - Setup/Installation
+        - Development/Coding
+        - Configuration
+        - Deployment
+        - API Usage
+        - UI/UX
+        - Performance
+        - Testing
+        - Best Practices
+        - Architecture
+        - Troubleshooting
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: |
+        Please be as specific as possible...
+        
+        What are you trying to achieve?
+        What have you already tried?
+        What specific aspect do you need help with?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Provide context about your situation
+      placeholder: |
+        - What are you building?
+        - What's your experience level?
+        - What's your current setup?
+        - Any constraints or requirements?
+
+  - type: textarea
+    id: attempted-solutions
+    attributes:
+      label: What Have You Tried?
+      description: What solutions have you already attempted?
+      placeholder: |
+        List any solutions you've already tried:
+        - Checked documentation section X
+        - Tried approach Y
+        - Searched for similar issues
+        - Asked in community forums
+
+  - type: textarea
+    id: expected-outcome
+    attributes:
+      label: Expected Outcome
+      description: What outcome are you hoping for?
+      placeholder: Describe what you want to achieve...
+
+  - type: textarea
+    id: code-samples
+    attributes:
+      label: Code Samples
+      description: Share any relevant code snippets
+      placeholder: |
+        ```javascript
+        // Your code here
+        ```
+      render: javascript
+
+  - type: textarea
+    id: error-messages
+    attributes:
+      label: Error Messages
+      description: Any error messages you're encountering?
+      placeholder: |
+        Paste any error messages here...
+      render: shell
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: What environment are you working in?
+      placeholder: e.g. Development, Production, Local setup
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of the project are you using?
+      placeholder: e.g. v1.2.3, main branch, commit hash
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency
+      description: How urgent is this question?
+      options:
+        - Low (Learning/exploring)
+        - Medium (Working on feature)
+        - High (Blocking development)
+        - Critical (Production issue)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: Any other information that might be helpful
+      placeholder: |
+        - Links to related documentation
+        - Screenshots or videos
+        - Relevant discussions
+        - Timeline considerations
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        **Community Guidelines:**
+        - Be respectful and patient
+        - Provide clear and detailed information
+        - Help others when you can
+        - Mark the best answer when your question is resolved
+        
+        Thank you for being part of the Kasbah Learn Hub community! 🚀
