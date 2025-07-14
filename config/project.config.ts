@@ -35,8 +35,7 @@ export const PROJECT_CONFIG = {
   /**
    * Short description of the project
    */
-  description:
-    "Modern LMS frontend built with React, Next.js, TypeScript, and Tailwind CSS.",
+  description: "Modern LMS frontend built with React, Next.js, TypeScript, and Tailwind CSS.",
 
   /**
    * Current version
@@ -51,15 +50,7 @@ export const PROJECT_CONFIG = {
   /**
    * Keywords/tags for search and discovery
    */
-  keywords: [
-    "LMS",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Tailwind",
-    "Education",
-    "Kasbah",
-  ],
+  keywords: ["LMS", "React", "Next.js", "TypeScript", "Tailwind", "Education", "Kasbah"],
 
   /**
    * Maintainers (name and email)
