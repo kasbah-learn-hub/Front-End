@@ -11,16 +11,15 @@ import Image from 'next/image'
 import { PasswordInput } from './ui/password-input'
 import { Loader } from 'lucide-react'
 import { toast } from 'sonner'
+// import { login } from '@/services/auth'
 
 const LoginForm = () => {
 
     const [loading,setLoading] = useState<boolean>(false)
-
     const [formData,setFormData] = useState({
         email: '',
         password: ''
     })
-
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -30,16 +29,22 @@ const LoginForm = () => {
         }));
     };
 
+
+    // trying UI
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
         setLoading(true)
         try{
+            // const response = await login(formData);
+            // if(response.status === 200){
+                // redirecting to dashboard based on the role
+            // }
             setTimeout(() => {
                setLoading(false)
                toast.success('Logged in successfully')
-            }, 1500);
+            }, 1500 );
         }catch{
-
+            
         }finally{
             // setLoading(false)
         }
@@ -115,7 +120,7 @@ const LoginForm = () => {
                                 Or sign in with
                                 </span>
                             </div>
-                            <OAuth />   
+                            <OAuth page='Sign in'/>   
                         </div>
                     </form>
                 </CardContent>

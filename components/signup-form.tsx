@@ -11,9 +11,24 @@ import Link from 'next/link'
 import { PhoneInput } from './ui/phone-input'
 import { PasswordInput } from './ui/password-input'
 
+import { z } from "zod";
+
+const signupSchema = z.object({
+    name: z.string().min(1, "Full name is required"),
+    phoneNumber: z.string().min(1, "Phone number is required"),
+    email: z.string().email("Invalid email"),
+    password: z.string().min(6, "Password must be at least 6 characters"),
+    r_password: z.string().min(6, "Please retype your password"),
+    }).refine((data) => data.password === data.r_password, {
+    message: "Passwords do not match",
+    path: ["r_password"],
+});
+
 
 export const SignupForm = () => {
 
+    const [loading,setLoading] = useState(false)
+    const [errors, setErrors] = useState<Partial<Record<keyof typeof formData, string>>>({});
     const [formData,setFormData] = useState({
         name: '',
         phoneNumber: '',
@@ -42,6 +57,20 @@ export const SignupForm = () => {
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
+        setErrors({});
+        const result = signupSchema.safeParse(formData);
+
+        if (!result.success) {
+            const fieldErrors = result.error.flatten().fieldErrors;
+            setErrors({
+                name: fieldErrors.name?.[0],
+                phoneNumber: fieldErrors.phoneNumber?.[0],
+                email: fieldErrors.email?.[0],
+                password: fieldErrors.password?.[0],
+                r_password: fieldErrors.r_password?.[0],
+            });
+            return;
+        }
         console.log(formData);
         
     }
@@ -72,22 +101,24 @@ export const SignupForm = () => {
 
                             <div className="grid gap-6">
 
-                                <div className='grid grid-cols-2 gap-2 '>
+                                <div className='grid grid-cols-2 justify-start items-start gap-2 '>
                                     <div className="grid gap-1">
                                         <Label htmlFor="name">Full name *</Label>
                                         <Input
                                             type="name"
                                             name='name'
                                             placeholder="eg, Joen doe"
-                                            required
+                                            // required
                                             onChange={handleChange}
                                         />
+                                          {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
                                     </div>
                                     <div className="grid gap-1">
                                         <Label htmlFor="email">Phone number *</Label>
                                         <div className='flex gap-1'>
                                             <PhoneInput placeholder="Enter a phone number" value={formData.phoneNumber} onChange={handlePhoneChange} name='phoneNumber'/>
                                         </div>
+                                        {errors.phoneNumber && <p className="text-red-600 text-sm">{errors.phoneNumber}</p>}
                                     </div>
                                 </div>
                                 <div className="grid gap-1">
@@ -100,16 +131,19 @@ export const SignupForm = () => {
                                         placeholder="m@example.com"
                                         required
                                     />
+                                    {errors.email && <p className="text-red-600 text-sm">{errors.email}</p>}
                                 </div>
 
-                                <div className='grid grid-cols-2 gap-2'>
+                                <div className='grid items-start grid-cols-2 gap-2'>
                                     <div className="grid gap-1">
                                         <Label htmlFor="email">Password *</Label>
                                         <PasswordInput value={formData.password} name='password' onChange={handleChange} placeholder='*********'/>
+                                        {errors.password && <p className="text-red-600 text-sm">{errors.password}</p>}
                                     </div>
                                     <div className="grid gap-1">
                                         <Label htmlFor="email">Retype password *</Label>
                                         <PasswordInput value={formData.r_password} name='r_password' onChange={handleChange} placeholder='*********'/>
+                                        {errors.r_password && <p className="text-red-600 text-sm">{errors.r_password}</p>}
                                     </div>
                                 </div>
 
@@ -124,12 +158,12 @@ export const SignupForm = () => {
                                 </div>
                                 
                             </div>
-                            <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t mt-2 mb-3">
+                            <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t my-4">
                                 <span className="bg-card text-muted-foreground relative z-10 px-2">
                                 Or sign up with
                                 </span>
                             </div>
-                            <OAuth />
+                            <OAuth page='Sign up'/>
                         </form>
                     </CardContent>
                 </Card>
