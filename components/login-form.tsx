@@ -1,48 +1,89 @@
 'use client'
 
-import React from 'react'
+import React, { FormEvent, useState } from 'react'
 import { OAuth } from './o-auth'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { Label } from './ui/label'
 import { Input } from './ui/input'
 import Link from 'next/link'
 import { Button } from './ui/button'
+import Image from 'next/image'
+import { PasswordInput } from './ui/password-input'
+import { Loader } from 'lucide-react'
+import { toast } from 'sonner'
 
 const LoginForm = () => {
+
+    const [loading,setLoading] = useState<boolean>(false)
+
+    const [formData,setFormData] = useState({
+        email: '',
+        password: ''
+    })
+
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (e:FormEvent<HTMLFormElement>) =>{
+        e.preventDefault()
+        setLoading(true)
+        try{
+            setTimeout(() => {
+               setLoading(false)
+               toast.success('Logged in successfully')
+            }, 1500);
+        }catch{
+
+        }finally{
+            // setLoading(false)
+        }
+    }
     return (
-        <div>
-            <div className="flex flex-col gap-6">
+    <div className='lg:w-[30%] md:w-[60%] w-[95%]'>
+            <div className='flex justify-center'>
+                <Image src={'/logo/logo-circule-frame-dark.png'} width={60} height={60} alt={'Kasbah learn hub'}/>
+            </div>
+            <div className="flex flex-col gap-6 mt-2">
             <Card>
                 <CardHeader className="text-center">
                     <CardTitle className="text-xl">Welcome back</CardTitle>
-                    <CardDescription>Login with your Google account</CardDescription>
+                    <CardDescription>Log in to access your courses, progress, and learning materials.</CardDescription>
+                    <CardDescription className="text-center text-sm text-gray-600 dark:text-gray-300">
+                        Don&apos;t have an account?{" "}
+                        <Link href="/signup" className="underline underline-offset-4 hover:text-blue-500 duration-200">
+                            Sign up
+                        </Link>
+                        </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form>
-                        <div className="grid gap-6">
+                    <form onSubmit={handleSubmit}>
+                        <div className="grid gap-4">
 
-                        <OAuth />
-                        <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
-                            <span className="bg-card text-muted-foreground relative z-10 px-2">
-                            Or
-                            </span>
-                        </div>
+                        
 
                         {/* {error && (
                             <div className="text-red-600 text-center mb-2">{error}</div>
                         )} */}
 
                         <div className="grid gap-6">
-                            <div className="grid gap-3">
+                            <div className="grid gap-1">
                                 <Label htmlFor="email">Email</Label>
                                 <Input
-                                    id="email"
+                                    name="email"
                                     type="email"
                                     placeholder="m@example.com"
                                     required
+                                    value={formData.email}
+                                    onChange={handleChange}
                                 />
                             </div>
-                            <div className="grid gap-3">
+                            <div className="grid gap-1">
                                 <div className="flex items-center">
                                     <Label htmlFor="password">Password</Label>
                                     <Link
@@ -52,25 +93,29 @@ const LoginForm = () => {
                                     Forgot your password?
                                     </Link>
                                 </div>
-                                <Input
-                                    id="password"
-                                    type="password"
-                                    required
-                                />
+                                <PasswordInput value={formData.password} onChange={handleChange} name='password' placeholder='*********'/>
+                                
                                 </div>
                                 <Button
                                     type="submit"
                                     className="w-full bg-blue-600 cursor-pointer hover:bg-blue-700"
+                                    disabled={loading}
                                 >
-                                    Login
+                                    {
+                                        loading ?
+                                        <div>
+                                            <Loader className='animate-spin'/>
+                                        </div>
+                                        : "Login"
+                                    }
                                 </Button>
                             </div>
-                            <div className="text-center text-sm">
-                                Don&apos;t have an account?{" "}
-                                <Link href="/signup" className="underline underline-offset-4">
-                                Sign up
-                                </Link>
+                            <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
+                                <span className="bg-card text-muted-foreground relative z-10 px-2">
+                                Or sign in with
+                                </span>
                             </div>
+                            <OAuth />   
                         </div>
                     </form>
                 </CardContent>
