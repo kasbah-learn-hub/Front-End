@@ -15,7 +15,13 @@ export const SecendSection = () => {
       {/**secend section */}
       <div className="h-screen w-4/4 border border-gray-500 rounded-full absolute -left-3/4 " />
       <div className="flex px-12 space-x-9 z-10">
-        <Image src={"/imgSection.svg"} alt="image" width={750} height={716} />
+        <Image
+          src={"/Moroccan-Kasbah-floor-plan.jpg"}
+          alt="image"
+          width={750}
+          height={716}
+          className="rounded-4xl"
+        />
         <div className="w-3/5 h-[716px] my-auto p-4 flex flex-col justify-center space-y-6">
           <div className="space-y-2.5">
             <p className="text-blue-400 text-2xl">The Name</p>
@@ -92,7 +98,13 @@ export const SecendSection = () => {
             built to support your success.
           </p>
         </div>
-        <Image src={"/imgSection.svg"} alt="image" width={750} height={716} />
+        <Image
+          src={"/imagesExaemple.png"}
+          alt="image"
+          width={750}
+          height={716}
+          className="rounded-4xl"
+        />
       </div>
       {/**======three section */}
 
