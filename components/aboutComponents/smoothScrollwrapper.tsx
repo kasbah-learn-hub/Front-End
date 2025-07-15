@@ -7,14 +7,14 @@ export const SmoothScrollwrapper = ({ children }: { children: ReactNode }) => {
   return (
     <ReactLenis root options={{ lerp: 0.07 }}>
       <div
-        style={{
-          backgroundImage: "url(/heroSection-bg.jpg)",
-          backgroundSize: "cover",
-        }}
-        className="min-h-screen"
+        // style={{
+        //   backgroundImage: "url(/heroSection-bg.jpg)",
+        //   backgroundSize: "cover",
+        // }}
+        className="min-h-screen bg-[#101828]"
       >
         {children}
-        <div className="text-black">jjjjjjjjjjjjjjj</div>
+        {/* <div className="text-black">jjjjjjjjjjjjjjj</div> */}
       </div>
     </ReactLenis>
   );
