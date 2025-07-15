@@ -17,6 +17,6 @@ jobs:
         uses: pozil/auto-assign-issue@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          assignees: khabzox,soufianboukir
+          assignees: khabzox,soufianboukir,Ibrahim-OUGHFAYN,saidKachoud
           numOfAssignee: 2
           reviewers: khabzox
