@@ -15,8 +15,8 @@ import Link from "next/link";
 const ForgotPasswordForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
-  const [isSent,setIsSent] = useState<boolean>(false)
-  const [email,setEmail] = useState('');
+  const [isSent, setIsSent] = useState<boolean>(false);
+  const [email, setEmail] = useState("");
 
   // trying UI
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -24,15 +24,15 @@ const ForgotPasswordForm = () => {
     setLoading(true);
     setError("");
     try {
-    //   const response = await forgotPassword(email);
-    //   if(response.status === 200){
-        // if the email exists or not (response from backend should be 200 as status)
-            // setIsSent(true)
-    //   }
+      //   const response = await forgotPassword(email);
+      //   if(response.status === 200){
+      // if the email exists or not (response from backend should be 200 as status)
+      // setIsSent(true)
+      //   }
       setTimeout(() => {
         setLoading(false);
         toast.success("reset link sent to your mail");
-        setIsSent(true)
+        setIsSent(true);
       }, 1500);
     } catch (err) {
       if (err instanceof Error) {
@@ -59,13 +59,12 @@ const ForgotPasswordForm = () => {
           <CardHeader className="text-center">
             <CardTitle className="text-xl">Forgot password</CardTitle>
             <CardDescription>
-                Provide the email address associated with your account
+              Provide the email address associated with your account
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit}>
               <div className="grid gap-4">
-
                 <div className="grid gap-6">
                   <div className="grid gap-1">
                     <Label htmlFor="email">Email</Label>
@@ -75,10 +74,14 @@ const ForgotPasswordForm = () => {
                       placeholder="your.mail@example.com"
                       required
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}              
+                      onChange={e => setEmail(e.target.value)}
                     />
                     {error && <div className="mb-2 text-center text-red-600">{error}</div>}
-                    {isSent && <div className="mb-2 text-sm text-green-700">If this email exists in our system, a reset link has been sent.</div>}
+                    {isSent && (
+                      <div className="mb-2 text-sm text-green-700">
+                        If this email exists in our system, a reset link has been sent.
+                      </div>
+                    )}
                   </div>
                   <Button
                     type="submit"
@@ -95,11 +98,11 @@ const ForgotPasswordForm = () => {
                   </Button>
 
                   <div className="flex justify-end gap-3">
-                    <Link href={'/login'} className="hover:underline duration-200">
-                        Login
+                    <Link href={"/login"} className="duration-200 hover:underline">
+                      Login
                     </Link>
-                    <Link href={'/signup'} className="hover:underline duration-200">
-                        Register
+                    <Link href={"/signup"} className="duration-200 hover:underline">
+                      Register
                     </Link>
                   </div>
                 </div>

@@ -18,14 +18,13 @@ export const register = async (formdata: RegisterFormData) => {
   return response;
 };
 
-export const forgotPassword = async (email: string) =>{
-  const response = await api.post(`/auth/forgot-password`,{email});
+export const forgotPassword = async (email: string) => {
+  const response = await api.post(`/auth/forgot-password`, { email });
   return response;
-}
-
+};
 
 // may send a token & mail
-export const resetPassword = async () =>{
+export const resetPassword = async () => {
   const response = await api.post(`/auth/reset-password`);
   return response;
-}
+};

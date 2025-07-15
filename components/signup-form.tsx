@@ -26,7 +26,7 @@ const signupSchema = z
   .refine(data => data.password === data.r_password, {
     message: "Passwords do not match",
     path: ["r_password"],
-});
+  });
 
 export const SignupForm = () => {
   const [loading, setLoading] = useState<boolean>(false);

@@ -17,20 +17,20 @@ const resetPasswordSchema = z
     password: z.string().min(6, "Password must be at least 6 characters"),
     r_password: z.string().min(6, "Please retype your password"),
   })
-  .refine((data) => data.password === data.r_password, {
+  .refine(data => data.password === data.r_password, {
     message: "Passwords do not match",
     path: ["r_password"],
   });
 
 type ResetPasswordErrors = {
-    password?: string,
-    r_password?: string
-}
+  password?: string;
+  r_password?: string;
+};
 
 const ResetPasswordForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [error,setError] = useState<string>('');
-  const [errors,setErrors] = useState<ResetPasswordErrors>({password:'', r_password:''})
+  const [error, setError] = useState<string>("");
+  const [errors, setErrors] = useState<ResetPasswordErrors>({ password: "", r_password: "" });
   const [formData, setFormData] = useState({
     password: "",
     r_password: "",
@@ -47,20 +47,19 @@ const ResetPasswordForm = () => {
   // trying UI
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
 
     const result = resetPasswordSchema.safeParse(formData);
     if (!result.success) {
-        const fieldErrors = result.error.flatten().fieldErrors;
-        setErrors({
-          password: fieldErrors.password?.[0],
-          r_password: fieldErrors.r_password?.[0],
-        });
-        return;
+      const fieldErrors = result.error.flatten().fieldErrors;
+      setErrors({
+        password: fieldErrors.password?.[0],
+        r_password: fieldErrors.r_password?.[0],
+      });
+      return;
     }
     if (!result.success) {
-        setLoading(false);
-        return;
+      setLoading(false);
+      return;
     }
     setLoading(true);
     try {
@@ -92,9 +91,7 @@ const ResetPasswordForm = () => {
         <Card>
           <CardHeader className="text-center">
             <CardTitle className="text-xl">Reset password</CardTitle>
-            <CardDescription>
-                Create a new password for your account
-            </CardDescription>
+            <CardDescription>Create a new password for your account</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit}>
@@ -110,9 +107,9 @@ const ResetPasswordForm = () => {
                       value={formData.password}
                       onChange={handleChange}
                     />
-                    {
-                        errors.password && <div className="text-sm text-red-600">{errors.password}</div>
-                    }
+                    {errors.password && (
+                      <div className="text-sm text-red-600">{errors.password}</div>
+                    )}
                   </div>
                   <div className="grid gap-1">
                     <Label htmlFor="r_password">Retype password</Label>
@@ -122,9 +119,9 @@ const ResetPasswordForm = () => {
                       value={formData.r_password}
                       onChange={handleChange}
                     />
-                    {
-                        errors.r_password && <div className="text-sm text-red-600">{errors.r_password}</div>
-                    }
+                    {errors.r_password && (
+                      <div className="text-sm text-red-600">{errors.r_password}</div>
+                    )}
                   </div>
                   <Button
                     type="submit"
@@ -140,8 +137,8 @@ const ResetPasswordForm = () => {
                     )}
                   </Button>
                   <div className="flex justify-end gap-3">
-                    <Link href={'/login'} className="hover:underline duration-200">
-                        Back to login
+                    <Link href={"/login"} className="duration-200 hover:underline">
+                      Back to login
                     </Link>
                   </div>
                 </div>
