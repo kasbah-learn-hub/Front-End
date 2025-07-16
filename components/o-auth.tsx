@@ -19,7 +19,7 @@ export const OAuth = ({ page }: { page: string }) => {
         className="flex w-full cursor-pointer items-center justify-center gap-2 py-5"
         type="button"
       >
-        <Image src={"/icons/facebook.svg"} width={25} height={25} alt="google icon" />
+        <Image src={"/icons/facebook.svg"} width={25} height={25} alt="facebook icon" />
         {page} with Facebook
       </Button>
 
@@ -28,8 +28,14 @@ export const OAuth = ({ page }: { page: string }) => {
         className="flex w-full cursor-pointer items-center justify-center gap-2 py-5"
         type="button"
       >
-        <Image src={"/icons/linkedin.svg"} width={20} height={20} alt="google icon" />
-        {page} with Linkedin
+        <Image
+          src={"/icons/github.svg"}
+          width={20}
+          height={20}
+          alt="github icon"
+          className="dark:invert-0"
+        />
+        {page} with Github
       </Button>
     </div>
   );

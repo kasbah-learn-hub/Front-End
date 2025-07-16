@@ -157,6 +157,7 @@ docker network prune
 ## Quick Start Guide
 
 1. **Setup environment files**:
+
    ```bash
    cp .env.production .env.production.local
    cp .env.development .env.development.local
@@ -164,11 +165,13 @@ docker network prune
    ```
 
 2. **Development**:
+
    ```bash
    docker-compose up app-dev
    ```
 
 3. **Production**:
+
    ```bash
    docker-compose up app
    ```
