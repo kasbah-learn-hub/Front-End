@@ -74,6 +74,7 @@ npm run docker:run:dev:powershell
 # Run development container (Mac/Linux)
 npm run docker:run:dev:mac
 npm run docker:run:dev:linux
+```
 
 ## 🔗 Related Repositories
 
