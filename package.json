@@ -13,8 +13,16 @@
     "docker:build": "docker build -t klh-frontend .",
     "docker:run": "docker run -p 3000:3000 --env-file .env.production.local klh-frontend",
     "docker:build:dev": "docker build -t klh-frontend-dev -f Dockerfile.dev .",
-    "docker:run:dev:win": "docker run -p 3000:3000 --env-file .env.development.local -v %cd%:/app klh-frontend-dev",
-    "docker:run:dev:unix": "docker run -p 3000:3000 --env-file .env.development.local -v $(pwd):/app klh-frontend-dev"
+    "docker:run:dev:cmd": "docker run -p 3000:3000 --env-file .env.development.local -v %cd%:/app -v /app/node_modules klh-frontend-dev",
+    "docker:run:dev:powershell": "powershell -ExecutionPolicy Bypass -File docker-dev.ps1",
+    "docker:run:dev:mac": "bash docker-dev.sh",
+    "docker:run:dev:linux": "bash docker-dev.sh",
+    "docker:stop": "docker stop $(docker ps -q)",
+    "docker:clean": "docker system prune -f",
+    "compose:dev": "docker-compose up app-dev",
+    "compose:prod": "docker-compose up app",
+    "compose:build": "docker-compose build",
+    "compose:down": "docker-compose down"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
@@ -49,7 +57,7 @@
     "eslint-config-next": "15.3.5",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.1.11",
     "tw-animate-css": "^1.3.5",
     "typescript": "^5"
   }
