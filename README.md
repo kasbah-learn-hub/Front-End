@@ -42,74 +42,6 @@ Modern, responsive React-based frontend for the Kasbah Learn Hub LMS platform. B
 - 🎯 Personalized learning paths
 - 🏆 Gamification elements
 
-## 🛠️ Development
-
-### Prerequisites
-
-- Node.js 18+
-- npm or yarn
-- Git
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/kasbah-learn-hub/Front-End.git
-
-# Navigate to project directory
-cd kasbah-frontend
-
-# Install dependencies
-npm install
-
-# Copy environment variables
-cp .env.example .env.local
-
-# Start development server
-npm run dev
-```
-
-### Available Scripts
-
-```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npm run test         # Run tests
-npm run test:watch   # Run tests in watch mode
-npm run type-check   # Run TypeScript type checking
-```
-
-## 🔧 Configuration
-
-### Environment Variables
-
-Create a `.env.local` file in the root directory:
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:3001
-NEXT_PUBLIC_SOCKET_URL=http://localhost:3001
-NEXT_PUBLIC_APP_NAME=Kasbah Learn Hub
-NEXT_PUBLIC_ANALYTICS_ID=your-analytics-id
-```
-
-### Tailwind CSS
-
-Tailwind is configured in `tailwind.config.js` with custom theme extensions for the Kasbah brand.
-
-## 🧪 Testing
-
-- **Unit Tests**: Jest + React Testing Library
-- **E2E Tests**: Cypress
-- **Coverage**: 80%+ target
-
-```bash
-npm run test              # Run unit tests
-npm run test:e2e         # Run e2e tests
-npm run test:coverage    # Generate coverage report
-```
-
 ## 🚀 Deployment
 
 ### Production Build
@@ -119,11 +51,29 @@ npm run build
 npm run start
 ```
 
-### Docker
+## Docker Commands Reference
+
+### Building and Running
 
 ```bash
-docker build -t kasbah-frontend .
-docker run -p 3000:3000 kasbah-frontend
+# Build the production image
+npm run docker:build
+
+# Build development image
+npm run docker:build:dev
+
+# Run production container
+npm run docker:run
+
+# Run development container (CMD/Windows)
+npm run docker:run:dev:cmd
+
+# Run development container (PowerShell)
+npm run docker:run:dev:powershell
+
+# Run development container (Mac/Linux)
+npm run docker:run:dev:mac
+npm run docker:run:dev:linux
 ```
 
 ## 🔗 Related Repositories
@@ -168,3 +118,4 @@ We're a tech-driven team building a modern LMS to make learning more accessible,
   <br>
   <em>Making learning accessible for everyone</em> 🚀
 </div>
+```
