@@ -13,8 +13,8 @@
     "docker:build": "docker build -t klh-frontend .",
     "docker:run": "docker run -p 3000:3000 --env-file .env.production.local klh-frontend",
     "docker:build:dev": "docker build -t klh-frontend-dev -f Dockerfile.dev .",
-    "docker:run:dev:win": "docker run -p 3001:3000 --env-file .env.development.local -v %cd%:/app klh-frontend-dev",
-    "docker:run:dev:unix": "docker run -p 3001:3000 --env-file .env.development.local -v $(pwd):/app klh-frontend-dev"
+    "docker:run:dev:win": "docker run -p 3000:3000 --env-file .env.development.local -v %cd%:/app klh-frontend-dev",
+    "docker:run:dev:unix": "docker run -p 3000:3000 --env-file .env.development.local -v $(pwd):/app klh-frontend-dev"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
