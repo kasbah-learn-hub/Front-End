@@ -51,46 +51,29 @@ npm run build
 npm run start
 ```
 
-### Docker
+## Docker Commands Reference
 
-#### Using Docker CLI
+### Building and Running
 
 ```bash
 # Build the production image
 npm run docker:build
 
-# Run the production container
-npm run docker:run
-
-# Build the development image
+# Build development image
 npm run docker:build:dev
 
-# Run the development container (with hot reload, mapped to port 3001)
-npm run docker:run:dev
-```
+# Run production container
+npm run docker:run
 
-#### Using Docker Compose
+# Run development container (CMD/Windows)
+npm run docker:run:dev:cmd
 
-```bash
-# Start production environment
-docker-compose up app
+# Run development container (PowerShell)
+npm run docker:run:dev:powershell
 
-# Start development environment
-docker-compose up app-dev
-
-# Start in detached mode (background)
-docker-compose up -d app
-```
-
-#### Custom Docker Scripts (in package.json)
-
-- `docker:build` – Build production image (`docker build -t il .`)
-- `docker:run` – Run production container (`docker run -p 3000:3000 --env-file .env.production.local il`)
-- `docker:build:dev` – Build development image (`docker build -t il-dev -f Dockerfile.dev .`)
-- `docker:run:dev:win` – Run development container on Windows (`docker run -p 3001:3000 --env-file .env.development.local -v %cd%:/app il-dev`)
-- `docker:run:dev:unix` – Run development container on WSL/macOS/Linux (`docker run -p 3001:3000 --env-file .env.development.local -v $(pwd):/app il-dev`)
-
-> Use `docker:run:dev:win` on Windows and `docker:run:dev:unix` on WSL/macOS/Linux for the correct volume mapping.
+# Run development container (Mac/Linux)
+npm run docker:run:dev:mac
+npm run docker:run:dev:linux
 
 ## 🔗 Related Repositories
 
@@ -134,3 +117,4 @@ We're a tech-driven team building a modern LMS to make learning more accessible,
   <br>
   <em>Making learning accessible for everyone</em> 🚀
 </div>
+```
