@@ -1,7 +1,15 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Enable standalone output for Docker
+  output: 'standalone',
+  
+  // Experimental features
+  experimental: {
+    // Enable server actions if needed
+    serverActions: true,
+  },
+  
+  // Add other configurations as needed
 };
 
-export default nextConfig;
+module.exports = nextConfig;
