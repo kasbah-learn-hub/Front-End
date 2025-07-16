@@ -6,16 +6,16 @@
 
 ```bash
 # Build the production image
-docker build -t my-app .
+docker build -t klh-frontend .
 
 # Build development image
-docker build -t my-app-dev -f Dockerfile.dev .
+docker build -t klh-frontend-dev -f Dockerfile.dev .
 
 # Run production container
-docker run -p 3000:3000 --env-file .env my-app
+docker run -p 3000:3000 --env-file .env klh-frontend
 
 # Run development container
-docker run -p 3001:3000 --env-file .env.dev -v $(pwd):/app my-app-dev
+docker run -p 3001:3000 --env-file .env.dev -v $(pwd):/app klh-frontend-dev
 ```
 
 ### Docker Compose Commands
@@ -100,16 +100,16 @@ docker-compose exec app-dev npm run format
 
 ```bash
 # Build production image
-docker build -t my-app:latest .
+docker build -t klh-frontend:latest .
 
 # Tag for registry
-docker tag my-app:latest your-registry/my-app:latest
+docker tag klh-frontend:latest your-registry/klh-frontend:latest
 
 # Push to registry
-docker push your-registry/my-app:latest
+docker push your-registry/klh-frontend:latest
 
 # Run production container
-docker run -d -p 3000:3000 --env-file .env --name my-app-prod my-app:latest
+docker run -d -p 3000:3000 --env-file .env --name klh-frontend-prod klh-frontend:latest
 ```
 
 ### Debugging Commands

@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "klh-frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,11 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\""
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "docker:build": "docker build -t klh-frontend .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env.production.local klh-frontend",
+    "docker:build:dev": "docker build -t klh-frontend-dev -f Dockerfile.dev .",
+    "docker:run:dev": "docker run -p 3001:3000 --env-file .env.development.local -v %cd%:/app klh-frontend-dev"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
