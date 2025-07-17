@@ -1,138 +1,18 @@
 "use client";
 
 import * as React from "react";
-import {
-  Menu,
-  Github,
-  MessageCircle,
-  Database,
-  Zap,
-  GitBranch,
-  RotateCcw,
-  Shield,
-  Search,
-  Code,
-  ArrowUpDown,
-  ChevronDown,
-  X,
-} from "lucide-react";
 
-const productItems = [
-  {
-    category: "DATABASE",
-    items: [
-      {
-        title: "Autoscaling",
-        description: "Automatic instance sizing",
-        icon: <Zap className="h-4 w-4" />,
-        href: "/autoscaling",
-      },
-      {
-        title: "Connection pooler",
-        description: "Thousands of connections",
-        icon: <Database className="h-4 w-4" />,
-        href: "/connection-pooler",
-      },
-      {
-        title: "Bottomless storage",
-        description: "With copy-on-write",
-        icon: <Database className="h-4 w-4" />,
-        href: "/storage",
-      },
-      {
-        title: "Branching",
-        description: "Modern Postgres workflows",
-        icon: <GitBranch className="h-4 w-4" />,
-        href: "/branching",
-      },
-      {
-        title: "Instant restores",
-        description: "Recover TBs in seconds",
-        icon: <RotateCcw className="h-4 w-4" />,
-        href: "/restores",
-      },
-    ],
-  },
-  {
-    category: "ECOSYSTEM",
-    items: [
-      {
-        title: "Auth",
-        description: "Authenticate your users",
-        icon: <Shield className="h-4 w-4" />,
-        href: "/auth",
-      },
-      {
-        title: "Search",
-        description: "Faster with pg_search",
-        icon: <Search className="h-4 w-4" />,
-        href: "/search",
-      },
-      {
-        title: "API",
-        description: "Manage Neon at scale",
-        icon: <Code className="h-4 w-4" />,
-        href: "/api",
-      },
-      {
-        title: "AI",
-        description: "Embeddings & agents",
-        icon: <Zap className="h-4 w-4" />,
-        href: "/ai",
-      },
-      {
-        title: "Migrations",
-        description: "Minimize downtime",
-        icon: <ArrowUpDown className="h-4 w-4" />,
-        href: "/migrations",
-      },
-    ],
-  },
-];
+import Link from "next/link";
+import Image from "next/image";
 
-const solutionsItems = [
-  {
-    title: "Startups",
-    description: "Scale from zero to millions",
-    href: "/solutions/startups",
-  },
-  {
-    title: "Enterprise",
-    description: "Built for mission-critical apps",
-    href: "/solutions/enterprise",
-  },
-  {
-    title: "Agencies",
-    description: "Manage multiple client projects",
-    href: "/solutions/agencies",
-  },
-];
+import { DropdownItemProps } from "@/types/landing-page";
 
-const companyItems = [
-  {
-    title: "About",
-    description: "Learn about our mission",
-    href: "/about",
-  },
-  {
-    title: "Blog",
-    description: "Latest news and updates",
-    href: "/blog",
-  },
-  {
-    title: "Careers",
-    description: "Join our team",
-    href: "/careers",
-  },
-  {
-    title: "Contact",
-    description: "Get in touch",
-    href: "/contact",
-  },
-];
+import { Menu, Github, MessageCircle, ChevronDown, X } from "lucide-react";
 
-const DropdownItem = ({ item, category }) => (
-  <a
+import { productItems, solutionsItems, companyItems } from "@/constants/landing-page";
+
+const DropdownItem = ({ item }: DropdownItemProps) => (
+  <Link
     href={item.href}
     className="group block rounded-lg p-3 leading-none no-underline transition-all duration-200 outline-none select-none hover:bg-gray-800/50"
   >
@@ -151,7 +31,7 @@ const DropdownItem = ({ item, category }) => (
         )}
       </div>
     </div>
-  </a>
+  </Link>
 );
 
 export default function Header() {
@@ -161,12 +41,17 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-gray-800/50 bg-black/80 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 max-w-7xl items-center px-4">
         {/* Logo */}
-        <a href="/" className="flex items-center space-x-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-emerald-400 to-emerald-600">
-            <span className="text-sm font-bold text-black">N</span>
+        <Link href="/" className="flex items-center space-x-2">
+          <div className="relative h-9 w-8 overflow-hidden">
+            <Image src="/logo/logo-circule-frame-light.svg" alt="Kasbah Learn Hub Logo" fill />
           </div>
-          <span className="text-xl font-bold text-white">Neon</span>
-        </a>
+          <div className="flex flex-col leading-none">
+            <span className="text-base font-bold text-white">Kasbah Learn Hub</span>
+            <span className="text-[10px] tracking-wide text-emerald-400">
+              Empowering Learning, Everywhere
+            </span>
+          </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:ml-8 lg:flex">
@@ -190,11 +75,7 @@ export default function Header() {
                           </h3>
                           <div className="space-y-1">
                             {category.items.map(item => (
-                              <DropdownItem
-                                key={item.title}
-                                item={item}
-                                category={category.category}
-                              />
+                              <DropdownItem key={item.title} item={item} />
                             ))}
                           </div>
                         </div>
@@ -226,19 +107,19 @@ export default function Header() {
             </div>
 
             {/* Regular Links */}
-            <a
+            <Link
               href="/docs"
               className="rounded-lg px-4 py-2 text-sm font-medium text-white/90 transition-all duration-200 hover:bg-gray-800/30 hover:text-white"
             >
               Docs
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/pricing"
               className="rounded-lg px-4 py-2 text-sm font-medium text-white/90 transition-all duration-200 hover:bg-gray-800/30 hover:text-white"
             >
               Pricing
-            </a>
+            </Link>
 
             {/* Company Dropdown */}
             <div className="group relative">
@@ -265,38 +146,38 @@ export default function Header() {
         {/* Right Side Actions */}
         <div className="ml-auto flex items-center space-x-2">
           {/* Discord */}
-          <a
+          <Link
             href="#"
             className="hidden items-center space-x-2 rounded-lg px-3 py-2 text-sm font-medium text-white/90 transition-all duration-200 hover:bg-gray-800/30 hover:text-white md:flex"
           >
             <MessageCircle className="h-4 w-4" />
             <span>Discord</span>
-          </a>
+          </Link>
 
           {/* GitHub */}
-          <a
+          <Link
             href="#"
             className="hidden items-center space-x-2 rounded-lg px-3 py-2 text-sm font-medium text-white/90 transition-all duration-200 hover:bg-gray-800/30 hover:text-white md:flex"
           >
             <Github className="h-4 w-4" />
             <span>19.1k</span>
-          </a>
+          </Link>
 
           {/* Log In */}
-          <a
+          <Link
             href="#"
             className="rounded-lg px-4 py-2 text-sm font-medium text-white/90 transition-all duration-200 hover:bg-gray-800/30 hover:text-white"
           >
             Log In
-          </a>
+          </Link>
 
           {/* Sign Up */}
-          <a
+          <Link
             href="#"
             className="rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 px-4 py-2 text-sm font-medium text-black shadow-lg transition-all duration-200 hover:from-emerald-400 hover:to-emerald-500 hover:shadow-emerald-500/25"
           >
             Sign Up
-          </a>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -319,7 +200,7 @@ export default function Header() {
               {productItems
                 .flatMap(category => category.items)
                 .map(item => (
-                  <a
+                  <Link
                     key={item.title}
                     href={item.href}
                     className="flex items-center space-x-3 py-2 text-white/90 transition-colors hover:text-white"
@@ -330,7 +211,7 @@ export default function Header() {
                       <div className="text-sm font-medium">{item.title}</div>
                       <div className="text-xs text-gray-400">{item.description}</div>
                     </div>
-                  </a>
+                  </Link>
                 ))}
             </div>
 
@@ -339,7 +220,7 @@ export default function Header() {
                 Solutions
               </h3>
               {solutionsItems.map(item => (
-                <a
+                <Link
                   key={item.title}
                   href={item.href}
                   className="block py-2 text-white/90 transition-colors hover:text-white"
@@ -347,25 +228,25 @@ export default function Header() {
                 >
                   <div className="text-sm font-medium">{item.title}</div>
                   <div className="text-xs text-gray-400">{item.description}</div>
-                </a>
+                </Link>
               ))}
             </div>
 
             <div className="space-y-3">
-              <a
+              <Link
                 href="/docs"
                 className="block py-2 text-sm font-medium text-white/90 transition-colors hover:text-white"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Docs
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/pricing"
                 className="block py-2 text-sm font-medium text-white/90 transition-colors hover:text-white"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Pricing
-              </a>
+              </Link>
             </div>
 
             <div className="space-y-3">
@@ -373,7 +254,7 @@ export default function Header() {
                 Company
               </h3>
               {companyItems.map(item => (
-                <a
+                <Link
                   key={item.title}
                   href={item.href}
                   className="block py-2 text-white/90 transition-colors hover:text-white"
@@ -381,25 +262,25 @@ export default function Header() {
                 >
                   <div className="text-sm font-medium">{item.title}</div>
                   <div className="text-xs text-gray-400">{item.description}</div>
-                </a>
+                </Link>
               ))}
             </div>
 
             <div className="space-y-3 border-t border-gray-800/50 pt-4">
-              <a
+              <Link
                 href="#"
                 className="flex items-center space-x-3 py-2 text-white/90 transition-colors hover:text-white"
               >
                 <MessageCircle className="h-4 w-4" />
                 <span className="text-sm font-medium">Discord</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="flex items-center space-x-3 py-2 text-white/90 transition-colors hover:text-white"
               >
                 <Github className="h-4 w-4" />
                 <span className="text-sm font-medium">GitHub (19.1k)</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

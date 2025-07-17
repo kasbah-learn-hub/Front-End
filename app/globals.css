@@ -1,12 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
-/* Move the orb background down by 80px */
-.orb-bg {
-  top: 80px;
-}
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -125,4 +119,9 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Move the orb background down by 94px */
+.orb-bg {
+  top: 94px;
 }
