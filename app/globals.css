@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
+/* Inside styles/globals.css or similar */
+.logo, [class*="logo"], img[src*="logo"] {
+  display: none !important;
+}
+
+img[src*="logo"], [class*="logo"] {
+  all: unset;
+  display: none !important;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
