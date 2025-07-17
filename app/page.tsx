@@ -6,7 +6,7 @@ export default function Home() {
     <div className="min-h-screen bg-black">
       <div className="relative flex flex-col min-h-screen max-h-screen overflow-hidden">
         {/* Orb as full background */}
-        <div className="absolute inset-0 w-full h-full z-0">
+        <div className="absolute inset-0 w-full h-full z-0 orb-bg">
           <Orb />
         </div>
         <Header />
