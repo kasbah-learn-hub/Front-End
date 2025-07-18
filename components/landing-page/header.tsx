@@ -42,10 +42,10 @@ export default function Header() {
       <div className="container mx-auto flex h-16 max-w-7xl items-center px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <div className="relative h-9 w-8 overflow-hidden">
-            <Image src="/logo/logo-circule-frame-light.svg" alt="Kasbah Learn Hub Logo" fill />
+          <div className="relative h-12 w-10 overflow-hidden">
+            <Image src="/logo/test.svg" alt="Kasbah Learn Hub Logo" fill />
           </div>
-          <div className="flex flex-col leading-none">
+          <div className="my-auto flex flex-col leading-none">
             <span className="text-base font-bold text-white">Kasbah Learn Hub</span>
             <span className="text-[10px] tracking-wide text-emerald-400">
               Empowering Learning, Everywhere
