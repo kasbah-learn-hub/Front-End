@@ -120,3 +120,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Move the orb background down by 94px */
+.orb-bg {
+  top: 94px;
+}
