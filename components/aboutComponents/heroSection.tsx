@@ -53,7 +53,7 @@ export const HeroSection = () => {
   return (
     <div
       ref={containerRef}
-      className="bg-[#282828]) flex h-screen flex-col items-center justify-center space-y-6 text-white md:space-y-20"
+      className="bg-[#000000]) flex h-screen flex-col items-center justify-center space-y-6 text-white md:space-y-20"
     >
       <div
         ref={sousTitleRef}
