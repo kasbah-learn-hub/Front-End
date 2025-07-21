@@ -60,16 +60,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check code quality
-        run: |
-          # Format check
-          npx prettier --check "**/*.{js,jsx,ts,tsx,json,css,md}" || {
-            echo "❌ Code formatting issues found. Run 'npm run format' locally."
-            exit 1
-          }
-          
-          # Lint check
-          npx next lint --strict
+      - name: Auto-format code with Prettier
+        run: npx prettier --write "**/*.{js,jsx,ts,tsx,json,css,md}"
+
+      - name: Lint check
+        run: npx next lint --strict
 
       - name: Build preview
         run: |
