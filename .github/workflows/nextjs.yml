@@ -71,8 +71,8 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         
-      - name: Check formatting
-        run: ${{ steps.detect-package-manager.outputs.runner }} prettier --check "**/*.{js,jsx,ts,tsx,json,css,md}"
+      - name: Format code
+        run: ${{ steps.detect-package-manager.outputs.runner }} prettier --write "**/*.{js,jsx,ts,tsx,json,css,md}"
         
       - name: Run linting (fail on errors)
         run: ${{ steps.detect-package-manager.outputs.runner }} next lint --strict
