@@ -103,7 +103,7 @@ export const CardsAbout = () => {
                 ))}
               </div>
 
-              <p className="mb-6 text-lg leading-relaxed text-white">"{testimonial.content}"</p>
+              <p className="mb-6 text-lg leading-relaxed text-white">&quot;{testimonial.content}&quot;</p>
 
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-700/50">
