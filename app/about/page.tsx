@@ -1,8 +1,6 @@
-// import { HeroSection } from "@/components/aboutComponents/heroSection";
-
-import HeroSection from "@/components/3d-models/HeroSection";
+import { CardsAbout } from "@/components/aboutComponents/cardsAbout";
+import { HeroAbout } from "@/components/aboutComponents/heroAbout";
 import { SecendSection } from "@/components/aboutComponents/secendSection";
-import Header from "@/components/landing-page/header";
 
 export const metadata = {
   title: "about",
@@ -10,13 +8,11 @@ export const metadata = {
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
-      <HeroSection />
+    <>
+      <HeroAbout />
       <SecendSection />
-    </div>
-
-    // </>
+      <CardsAbout />
+    </>
   );
 };
 
