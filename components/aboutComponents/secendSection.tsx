@@ -1,6 +1,8 @@
-import Image from "next/image";
+"use client";
 
 import { Roboto } from "next/font/google";
+import Lottie from "lottie-react";
+import dataProtectionAnimation from "../../lotties/Data-protection-isometric.json";
 
 const robotoFont = Roboto({
   subsets: ["latin"],
@@ -9,19 +11,13 @@ const robotoFont = Roboto({
 
 export const SecendSection = () => {
   return (
-    <div
-      className={`h-sc)reen bg-[#282828]) relative text-white ${robotoFont.className} space-y-12`}
-    >
+    <div className={`h-sc)reen relative bg-black text-white ${robotoFont.className} space-y-12`}>
       {/**secend section */}
-      <div className="absolute -left-3/4 h-screen w-4/4 rounded-full border border-gray-500" />
+      <div className="absolute -left-3/4 h-screen w-4/4 rounded-full border border-gray-50" />
       <div className="z-10 flex space-x-9 px-12">
-        <Image
-          src={"/Moroccan-Kasbah-floor-plan.jpg"}
-          alt="image"
-          width={750}
-          height={716}
-          className="rounded-4xl"
-        />
+        <div>
+          <Lottie animationData={dataProtectionAnimation} loop />
+        </div>
         <div className="my-auto flex h-[716px] w-3/5 flex-col justify-center space-y-6 p-4">
           <div className="space-y-2.5">
             <p className="text-2xl text-blue-400">The Name</p>
@@ -89,87 +85,11 @@ export const SecendSection = () => {
             built to support your success.
           </p>
         </div>
-        <Image
-          src={"/imagesExaemple.png"}
-          alt="image"
-          width={750}
-          height={716}
-          className="rounded-4xl"
-        />
+        <div>
+          <Lottie animationData={dataProtectionAnimation} loop />
+        </div>
       </div>
       {/**======three section */}
-
-      {/**Four section */}
-      <div className="mt-40 flex flex-col items-center space-y-6">
-        <h1
-          className={`md:text-6xl) font-semi)bold tracking-ti)ght w-2/4 text-center text-[20px] xl:text-[4rem]`}
-        >
-          Where Community Fuels Growth, and Learning is an Experience
-        </h1>
-        <div className="w-2/4 text-center text-xl text-gray-400">
-          At Skill, a strong community, a growth mindset, and hands-on learning are the foundation,
-          shaping meaningful and impactful experiences.
-        </div>
-      </div>
-      <div className="flex justify-center space-x-4 px-12">
-        {/**card one */}
-        <div className="w-2/5 p-12">
-          <div className="min-w-md">
-            <div className="mb-8 grid grid-cols-3 gap-3">
-              {[...Array(9)].map((_, i) => (
-                <div
-                  key={i}
-                  className={`bg-primary aspect-square rounded-2xl ${
-                    i % 2 === 0 ? "animate-pulse" : ""
-                  }`}
-                />
-              ))}
-            </div>
-
-            <h2 className="mb-4 text-2xl text-gray-400">Experience</h2>
-            <p className="text-2xl">Transforming Knowledge Through Real-World Practice</p>
-          </div>
-        </div>
-
-        {/**card two */}
-        <div className="w-2/5 p-12">
-          <div className="min-w-md">
-            <div className="mb-8 grid grid-cols-3 gap-3">
-              {[...Array(9)].map((_, i) => (
-                <div
-                  key={i}
-                  className={`bg-primary aspect-square rounded-2xl ${
-                    i % 2 !== 0 ? "animate-pulse" : ""
-                  }`}
-                />
-              ))}
-            </div>
-
-            <h2 className="mb-4 text-2xl text-gray-400">Community</h2>
-            <p className="text-2xl">Uniting Creators for Shared Success</p>
-          </div>
-        </div>
-
-        {/**card three */}
-        <div className="w-2/5 p-12">
-          <div className="min-w-md">
-            <div className="mb-8 grid grid-cols-3 gap-3">
-              {[...Array(9)].map((_, i) => (
-                <div
-                  key={i}
-                  className={`bg-primary aspect-square rounded-2xl ${
-                    i % 2 === 0 ? "animate-pulse" : ""
-                  }`}
-                />
-              ))}
-            </div>
-
-            <h2 className="mb-4 text-2xl text-gray-400">Community</h2>
-            <p className="text-2xl">Uniting Creators for Shared Success</p>
-          </div>
-        </div>
-      </div>
-      {/**======Four section */}
     </div>
   );
 };

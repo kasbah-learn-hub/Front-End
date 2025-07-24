@@ -119,9 +119,23 @@
   body {
     @apply bg-background text-foreground;
   }
+  html {
+    @apply scroll-smooth;
+  }
 }
 
 /* Move the orb background down by 94px */
 .orb-bg {
   top: 94px;
+}
+
+/* For cardsAbout.tsx*/
+@layer components {
+  .glass-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
 }
